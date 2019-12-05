@@ -15,11 +15,17 @@ public class JsonObject extends Json {
 
     @Override
     public String toJson() {
-        String toRes;
-        for (JsonPair pair : cache) {
-
+        if (cache.size() == 0){
+            return "{}";
         }
-        return null;
+        StringBuilder toRes = new StringBuilder();
+        toRes.append("{");
+        for (JsonPair pair : cache) {
+            toRes.append("'").append(pair.key).append("': ").append(pair.value.toJson()).append(", ");
+        }
+        toRes.delete(toRes.length()-2, toRes.length());
+        toRes.append("}");
+        return String.valueOf(toRes);
     }
 
     public void add(JsonPair jsonPair) {
