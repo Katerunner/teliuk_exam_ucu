@@ -32,8 +32,19 @@ public class JSONApp {
 
 
     public static JsonObject sessionResult() {
-        JsonObject jsonObject = new JsonObject();
+        Json jYear = new JsonNumber(2);
 
-        return jsonObject;
+        Json jMarks = new JsonArray(new JsonNumber(3), new JsonNumber(4));
+
+        JsonPair name = new JsonPair("name", new JsonString("Andrii"));
+        JsonPair surname = new JsonPair("surname", new JsonString("Rodionov"));
+        JsonPair marks = new JsonPair("marks", jMarks);
+        JsonPair year = new JsonPair("year", jYear);
+        JsonObject jsonObj = new JsonObject(name, surname, year, marks);
+        BasicStudent basicStudent = new BasicStudent("Andrii", "Rodionov", 2);
+
+
+        JsonObject jsonObject = new JsonObject();
+        return basicStudent.toJsonObject();
     }
 }
