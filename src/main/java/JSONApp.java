@@ -1,9 +1,5 @@
 import domain.BasicStudent;
-import domain.Student;
 import json.*;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by Andrii_Rodionov on 1/3/2017.
@@ -36,7 +32,7 @@ public class JSONApp {
 
 
     public static JsonObject sessionResult() {
-        JsonObject jsonObject = null;
+        JsonObject jsonObject = new JsonObject();
 
         return jsonObject;
     }
